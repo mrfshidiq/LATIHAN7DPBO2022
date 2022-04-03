@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+
+  <title>To Do List</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">TO DO LIST</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+
+  <br />
+  <br />
+  <div class="d-flex w-100 px-5">
+    <div class="card container w-25 p-5 mr-3">
+      <h2 class="card-title">Add Task</h2>
+      <form action="index.php" method="POST">
+        <div class="form-row">
+          <div class="form-group col">
+            <label for="tname">Task Name</label>
+            <input type="text" class="form-control" name="tname" required />
+          </div>
+        </div>
+    
+        <div class="form-row">
+          <div class="form-group col">
+            <label for="tdeadline">Deadline</label>
+            <input class="form-control" type="date" name="tdeadline" name="tdeadline" required />
+          </div>
+        </div>
+    
+        <div class="form-row">
+          <div class="form-group col">
+            <label for="tdetail">Detail</label>
+            <textarea class="form-control" name="tdetails" rows="3" required></textarea>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="form-group col">
+            <label for="tsubject">Subject</label>
+            <div class="col-sm-10">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="tsubject" id="tsubject1" value="Basis Data" />
+                <label class="form-check-label" for="tsubject1">Basis Data</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="tsubject" id="tsubject2" value="DPBO" />
+                <label class="form-check-label" for="tsubject2">DPBO</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="tsubject" id="tsubject3" value="Struktur Data" />
+                <label class="form-check-label" for="tsubject3">Struktur Data</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="tsubject" id="tsubject4" value="Other" />
+                <label class="form-check-label" for="tsubject4">Other</label>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="form-group col">
+            <label for="tpriority">Priority</label>
+            <div class="col-sm-10">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="tpriority" id="tpriority1" value="Low" />
+                <label class="form-check-label" for="tpriority1">Low</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="tpriority" id="tpriority2" value="Medium" />
+                <label class="form-check-label" for="tpriority2">Medium</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="tpriority" id="tpriority3" value="High" />
+                <label class="form-check-label" for="tpriority3">High</label>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <button type="submit" name="add" class="btn btn-primary">Add</button>
+      </form>
+    </div>
+  
+    <!-- <br> -->
+    <div class="card container w-75 p-5">
+      <h2 class="card-title">To-Do List</h2>
+      <!-- Tabel 1 - Task -->
+      <div class="w-100">
+        <!-- TABEL1 -->
+        <table class="table">
+          <tr>
+            <td>No</td>
+            <td>Name</td>
+            <td style="width: 40%;">Detail</td>
+            <td>Subject</td>
+            <td>Priority</td>
+            <td>Deadline</td>
+            <td>Status</td>
+            <td>Aksi</td>
+          </tr>
+          <tr>
+            <!-- DATA YG AKAN DIGANTI -->
+            DATA_TABEL
+          </tr>
+  
+        </table>
+        <!-- Form untuk menampung nilai dari button -->
+         <h3 class="card-title">Sorting Berdasarkan</h3>
+        <form action="index.php" method="POST">
+          <!-- Button Button yang berfungsi sebagai mediator sorting -->
+          <button class="btn btn-primary"name="sortingsubject" type="submit" style="background-color: green;" >Subject</button>
+          <button class="btn btn-primary"name="sortingpriority" type="submit"  style="background-color: black;" >Priority</button>
+          <button class="btn btn-primary"name="sortingdeadline" type="submit" style="background-color: orange;" >Deadline</button>
+          <button class="btn btn-primary"name="sortingstatus" type="submit" style="background-color: palegreen;" >Status</button>
+          <button class="btn btn-primary"name="sortingreset" type="submit" style="background-color: paleturquoise;" >Reset</button>
+        </form>
+       
+      </div>
+      
+  
+    </div>
+  </div>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>
